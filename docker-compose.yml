@@ -1,21 +1,8 @@
 version: '2'
 
 services:
-  gogs:
-    image: gogs/gogs
-    ports:
-      - "10022:22"
-      - "10080:3000"
-    volumes:
-      - gogs:/data
-
-  postgres:
-    image: postgres
-    env_file:
-      - postgres.env
-    volumes:
-      - postgres:/var/lib/postgresql/data
-
-volumes:
-  gogs:
-  postgres:
+  prometheus:
+    build:
+      context: prometheus
+      dockerfile: Dockerfile
+    image: registry.cn-beijing.aliyuncs.com/bibaijin/prometheus
